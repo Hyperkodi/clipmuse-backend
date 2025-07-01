@@ -17,7 +17,7 @@ async def process_video(file: UploadFile = File(...)):
         f.write(await file.read())
 
     audio_path = "audio.wav"
-    os.system(f"ffmpeg -i {input_filename} -vn -acodec pcm_s16le -ar 16000 -ac 1 {audio_path}")
+    os.system(f"ffmpeg -y -i {input_filename} -vn -acodec pcm_s16le -ar 16000 -ac 1 {audio_path}")
 
     transcript = transcribe_audio(audio_path)
     start_time = select_best_clip(transcript)
