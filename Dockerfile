@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # Install Python deps
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt uvicorn
 
 # Expose FastAPI port
 EXPOSE 10000
